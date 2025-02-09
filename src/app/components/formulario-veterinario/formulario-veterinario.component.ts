@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { EventoService } from '../../services/evento.service';
 import { LoggerService } from '../../services/logger.service';
 import { Empleado } from '../../model/empleado';
 import { Cliente } from '../../model/cliente';
+import { Event } from '../../model/event';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -31,10 +31,11 @@ export class FormularioVeterinario {
 
   constructor(private fb: FormBuilder, private loggerService: LoggerService) {
     this.eventForm = this.fb.group({
+
       enfermedad: ['', Validators.required],
       descripcion: ['', Validators.required],
-      type: ['log', Validators.required],
-      date: [null, Validators.required],
+      categoria: ['log', Validators.required],
+      fecha: [null, Validators.required],
       empleado: ['', Validators.required],
       cliente: ['', Validators.required],
       status: [''],
