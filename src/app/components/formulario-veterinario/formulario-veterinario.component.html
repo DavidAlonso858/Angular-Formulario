@@ -1,0 +1,25 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <label>Título:</label>
+    <input formControlName="title" required />
+
+    <label>Descripción:</label>
+    <textarea formControlName="description"></textarea>
+
+    <label>Categoría:</label>
+    <select formControlName="category">
+        <option value="log">Log</option>
+        <option value="warm">Warning</option>
+        <option value="error">Error</option>
+    </select>
+
+    <label>Empleado:</label>
+    <input formControlName="employee" />
+
+    <label>Cliente:</label>
+    <input formControlName="client" />
+
+    <label>Fecha:</label>
+    <input type="date" formControlName="date" />
+
+    <button type="submit">Registrar Evento</button>
+</form>
