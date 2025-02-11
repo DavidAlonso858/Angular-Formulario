@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoggerService } from '../../services/logger.service';
 import { Event } from '../../model/event';
-
+import { FormsModule } from '@angular/forms';
+// hay que importar esto en el componente para usar el ngFor o el ngModel
 @Component({
   selector: 'app-event-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
+  // hay que importar esto en el componente para usar el ngFor o el ngModel
   templateUrl: './lista-veterinario.component.html',
   styleUrls: ['./lista-veterinario.component.css']
 })
@@ -14,8 +16,8 @@ import { Event } from '../../model/event';
 export class EventListComponent {
   allEvents: Event[] = []; // usado para almacenar los eventos del service
   events: Event[] = []; // para almacenar los eventos filtrado por una categoria
-  eventsCount = { log: 0, warn: 0, error: 0 }; 
-
+  eventsCount = { log: 0, warn: 0, error: 0 };
+  selectedCategory: string = '';
   constructor(private loggerService: LoggerService) { }
 
   ngOnInit(): void {
@@ -34,7 +36,12 @@ export class EventListComponent {
     };
   }
 
+  // lo recorro en el ngFor por ese el else por si no se selecciona nada en el select
   filtradoCategoria(categoria: string): void {
-    this.events = this.allEvents.filter(event => event.categoria === categoria);
+    if (categoria) {
+      this.events = this.allEvents.filter(event => event.categoria === categoria);
+    } else {
+      this.events = [...this.allEvents];
+    }
   }
 }
