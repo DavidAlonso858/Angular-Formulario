@@ -17,8 +17,8 @@ export class LoggerService {
   }
 
   // si se pasa categoria devuelve los de esa, sino devuelve todos
-  getEvents(category?: 'log' | 'warn' | 'error'): Event[] {
-    return category ? this.events.filter(event => event.categoria === category) : this.events;
+  getEvents(categoria?: 'log' | 'warn' | 'error'): Event[] {
+    return categoria ? this.events.filter(event => event.categoria === categoria) : this.events;
   }
 
   // luego de los : lo que ponemos es que devuelve esta funcion, en este caso 

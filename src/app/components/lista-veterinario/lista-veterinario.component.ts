@@ -10,8 +10,8 @@ import { Event } from '../../model/event';
   templateUrl: './lista-veterinario.component.html',
   styleUrls: ['./lista-veterinario.component.css']
 })
-export class EventListComponent {
 
+export class EventListComponent {
   allEvents: Event[] = [];
   events: Event[] = [];
   eventsCount = { log: 0, warn: 0, error: 0 }; 
@@ -19,9 +19,10 @@ export class EventListComponent {
   constructor(private loggerService: LoggerService) {}
 
   ngOnInit(): void {
-    this.allEvents = this.loggerService.getEvents();
-    this.updateEventCount();
-    this.events = [...this.allEvents];
+    this.allEvents = this.loggerService.getEvents(); // pillo todos los eventos 
+    this.updateEventCount(); // actualizo el conteo por categoria
+    this.events = [...this.allEvents]; // copia de los eventos adquiridos del service 
+                                      // para luego usarlo en el filtrado
   }
 
   updateEventCount(): void {
@@ -32,7 +33,7 @@ export class EventListComponent {
     };
   }
 
-  onFilterCategory(category: string): void {
-    this.events = this.allEvents.filter(event => event.categoria === category); 
+  filtradoCategoria(categoria: string): void {
+    this.events = this.allEvents.filter(event => event.categoria === categoria); 
   }
 }

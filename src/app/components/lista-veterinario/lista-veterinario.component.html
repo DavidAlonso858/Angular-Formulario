@@ -1,13 +1,12 @@
 <label>Filtrar por categoría:</label>
-<select [(ngModel)]="filtradoCategoria" (change)="filterEvents()">
-  <option value="">Todos</option>
+<select [(ngModel)]="filtradoCategoria" (change)="filtradoCategoria()">
   <option value="log">Log</option>
   <option value="warm">Warning</option>
   <option value="error">Error</option>
 </select>
 
 <ul>
-  <li *ngFor="let event of events">
-    {{ event.title }} - {{ event.category }} - {{ event.createdAt | date }}
+  <li *ngfor="let event of events">
+    {{ event.enfermedad }} - {{ event.categoria }} - {{ event.fechaCreacion| date }}
   </li>
 </ul>
