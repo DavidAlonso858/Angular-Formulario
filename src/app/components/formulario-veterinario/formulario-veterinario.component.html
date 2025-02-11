@@ -1,25 +1,29 @@
-<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-    <label>Título:</label>
-    <input formControlName="title" required />
-
+<!--Asocio el formulario HTML con el FormGroup del componente-->
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> <!--llamo al enviar formulario-->
+    <label>Enfermedad:</label>
+    <input formControlName="enfermedad" required />
+    <!--Conecto los campos con el campo del FormGroup-->
     <label>Descripción:</label>
-    <textarea formControlName="description"></textarea>
+    <textarea formControlName="descripcion"></textarea>
 
     <label>Categoría:</label>
-    <select formControlName="category">
+    <!--Conecto los campos con el campo del FormGroup, en este caso solo en el select 
+y luego los value en el option-->
+    <select formControlName="categoria">
         <option value="log">Log</option>
-        <option value="warm">Warning</option>
+        <option value="warn">Warning</option>
         <option value="error">Error</option>
     </select>
 
     <label>Empleado:</label>
-    <input formControlName="employee" />
+    <input formControlName="empleado" />
 
     <label>Cliente:</label>
-    <input formControlName="client" />
+    <input formControlName="cliente" />
 
     <label>Fecha:</label>
-    <input type="date" formControlName="date" />
+    <input type="date" formControlName="fecha" />
 
     <button type="submit">Registrar Evento</button>
+    <!--No olvidar el type=submit para que active el ngSubmit-->
 </form>
