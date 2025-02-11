@@ -1,29 +1,45 @@
-<!--Asocio el formulario HTML con el FormGroup del componente-->
-<form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> <!--llamo al enviar formulario-->
-    <label>Enfermedad:</label>
-    <input formControlName="enfermedad" required />
-    <!--Conecto los campos con el campo del FormGroup-->
-    <label>Descripción:</label>
-    <textarea formControlName="descripcion"></textarea>
+<div class="formu-container">
+    <h2>Registrar Incidencia Veterinaria</h2>
+    <!--Asocio el formulario HTML con el FormGroup del componente-->
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> <!--llamo al enviar formulario-->
+        <div class="formu-apartado">
+            <label>Enfermedad:</label>
+            <input formControlName="enfermedad" required />
+            <!--Conecto los campos con el campo del FormGroup-->
+        </div>
 
-    <label>Categoría:</label>
-    <!--Conecto los campos con el campo del FormGroup, en este caso solo en el select 
-y luego los value en el option-->
-    <select formControlName="categoria">
-        <option value="log">Log</option>
-        <option value="warn">Warning</option>
-        <option value="error">Error</option>
-    </select>
+        <div class="formu-apartado">
+            <label>Descripción:</label>
+            <textarea formControlName="descripcion"></textarea>
+        </div>
 
-    <label>Empleado:</label>
-    <input formControlName="empleado" />
+        <div class="formu-apartado">
+            <label>Categoría:</label>
+            <!--Conecto los campos con el campo del FormGroup, en este caso solo en el select 
+            y luego los value en el option-->
+            <select formControlName="categoria">
+                <option value="log">Log</option>
+                <option value="warn">Warning</option>
+                <option value="error">Error</option>
+            </select>
+        </div>
 
-    <label>Cliente:</label>
-    <input formControlName="cliente" />
+        <div class="formu-apartado">
+            <label>Empleado:</label>
+            <input formControlName="empleado" />
+        </div>
 
-    <label>Fecha:</label>
-    <input type="date" formControlName="fecha" />
+        <div class="formu-apartado">
+            <label>Cliente:</label>
+            <input formControlName="cliente" />
+        </div>
 
-    <button type="submit">Registrar Evento</button>
-    <!--No olvidar el type=submit para que active el ngSubmit-->
-</form>
+        <div class="formu-apartado">
+            <label>Fecha:</label>
+            <input type="date" formControlName="fecha" />
+        </div>
+
+        <button type="submit">Registrar Evento</button>
+        <!--No olvidar el type=submit para que active el ngSubmit-->
+    </form>
+</div>
