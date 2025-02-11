@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { LoggerService } from '../../services/logger.service';
 import { Event } from '../../model/event';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 // hay que importar esto en el componente para usar el ngFor o el ngModel
 @Component({
   selector: 'app-event-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   // hay que importar esto en el componente para usar el ngFor o el ngModel
   templateUrl: './lista-veterinario.component.html',
   styleUrls: ['./lista-veterinario.component.css']

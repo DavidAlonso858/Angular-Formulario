@@ -8,13 +8,14 @@ import { Cliente } from '../../model/cliente';
 import { Event } from '../../model/event';
 // las interfaces (modelos)
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-event-form',
   standalone: true,
   // permite que funcione de forma independiente por eso mejor 
   // lo pongo siempre que a veces da fallo
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './formulario-veterinario.component.html',
   styleUrls: ['./formulario-veterinario.component.css']
 })
