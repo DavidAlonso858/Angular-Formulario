@@ -1,15 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { EventFormComponent } from './components/event-form/event-form.component';
-import { EventListComponent } from './components/event-list/event-list.component';
+import { Routes } from '@angular/router';
+import { FormularioVeterinario } from './components/formulario-veterinario/formulario-veterinario.component';
+import { EventListComponent } from './components/lista-veterinario/lista-veterinario.component';
+import { PresentacionComponent } from './components/presentacion/presentacion.component'
 
-const routes: Routes = [
-  { path: '', component: EventFormComponent },
-  { path: 'events', component: EventListComponent }
+export const routes: Routes = [
+  { path: '', component: PresentacionComponent },
+  { path: 'events', component: EventListComponent },
+  { path: 'formu', component: FormularioVeterinario }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}

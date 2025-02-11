@@ -1,0 +1,31 @@
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 12%;
+    width: 75%;
+}
+
+h1 {
+    color: #2a7f62;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #2a7f62;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #256b53;
+}
