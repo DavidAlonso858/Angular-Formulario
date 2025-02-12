@@ -1,8 +1,3 @@
-convertir el empleado del formulario en un select 
-y que cuando 
-lo seleccione haga un cambio en el navbar
-
-
 
 hacer un service solo para esto
 private objetoCambioSbject = new BehaviorSubject<any>(null)

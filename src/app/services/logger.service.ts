@@ -1,5 +1,5 @@
 // import { Injectable } from '@angular/core';
-// import { Event } from '../model/event';
+// import { EventVeterinario} from '../model/event';
 
 // // puede marcar este servicio en otros componentes u otros servicios 
 // @Injectable({
@@ -7,18 +7,18 @@
 // })
 
 // export class LoggerService {
-//   private events: Event[] = []; // almaceno los eventos del modelo 
+//   private events: EventVeterinario[] = []; // almaceno los eventos del modelo 
 
 //   constructor() { }
   
 //   // funcion que el paso el parametro evento para aagregarlo
-//   addEvent(event: Event): void {
+//   addEvent(event: EventVeterinario): void {
 //     this.events.push(event);
 //   }
 
 //   /* si se pasa categoria devuelve los de esa, sino devuelve todos
   
-//   getEvents(categoria?: 'log' | 'warn' | 'error'): Event[] {
+//   getEvents(categoria?: 'log' | 'warn' | 'error'): EventVeterinario[] {
 //     return categoria ? this.events.filter(event => event.categoria === categoria) : this.events;
 //   }
   
@@ -26,7 +26,7 @@
 
 //   // Hay una funcion de filtrado en el lista-veterinario
 //   //  por eso he simplificado esta funcion del service 
-//   getEvents(): Event[] {
+//   getEvents(): EventVeterinario[] {
 //     return this.events;
 //   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventosService } from '../../services/evento.service';
-import { Event } from '../../model/event';
+import { EventVeterinario } from '../../model/eventVeterinario';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -16,8 +16,8 @@ import { RouterModule } from '@angular/router';
 })
 
 export class EventListComponent {
-  allEvents: Event[] = []; // usado para almacenar los eventos del service
-  events: Event[] = []; // para almacenar los eventos filtrado por una categoria
+  allEvents: EventVeterinario[] = []; // usado para almacenar los eventos del service
+  events: EventVeterinario[] = []; // para almacenar los eventos filtrado por una categoria
   eventsCount = { leve: 0, moderada: 0, grave: 0 };
   selectedCategory: string = '';
   constructor(private eventoService: EventosService) { }

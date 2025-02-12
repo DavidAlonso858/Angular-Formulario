@@ -5,17 +5,18 @@ import { EmpleadoService } from '../../services/empleado.service';
 // servicio que almacena los eventos
 import { EventosService } from '../../services/evento.service';
 import { Empleado } from '../../model/empleado';
-import { Event } from '../../model/event';
+import { EventVeterinario } from '../../model/eventVeterinario';
 // las interfaces (modelos)
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { EmpleadoSeleccionadoComponent } from "../empleado-seleccionado/empleado-seleccionado.component";
 @Component({
   selector: 'app-event-form',
   standalone: true,
   // permite que funcione de forma independiente por eso mejor 
   // lo pongo siempre que a veces da fallo
-  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule, BsDatepickerModule],
+  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule, BsDatepickerModule, EmpleadoSeleccionadoComponent],
   templateUrl: './formulario-veterinario.component.html',
   styleUrls: ['./formulario-veterinario.component.css']
 })
@@ -57,7 +58,7 @@ export class FormularioVeterinario {
 
   onSubmit() {
     if (this.eventForm.valid) { // si los datos introducidos son validos
-      const newEvent: Event = { // creo un evento con una id unica
+      const newEvent: EventVeterinario = { // creo un evento con una id unica
         id: Date.now(),
         ...this.eventForm.value, // y copiando los datos del evento
         fechaCreacion: new Date(), // pongo la fecha de creacion
@@ -65,5 +66,9 @@ export class FormularioVeterinario {
       this.eventoService.addEvento(newEvent); // lo añado al service
       this.eventForm.reset(); // reseteo los valores que ya los he copiado
     }
+  }
+
+  empleadoSeleccionado(event: Event){
+
   }
 }

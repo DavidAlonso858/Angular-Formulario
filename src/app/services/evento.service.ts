@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Event} from '../model/event';
+import { EventVeterinario} from '../model/eventVeterinario';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,10 @@ export class EventosService {
   constructor(private http: HttpClient) { }
 
   getEventos() {
-    return this.http.get<Event[]>(this.url);
+    return this.http.get<EventVeterinario[]>(this.url);
   }
 
-  addEvento(evento: Event) {
+  addEvento(evento: EventVeterinario) {
     return this.http.post(this.url, evento);
   }
 }

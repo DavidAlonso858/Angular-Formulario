@@ -1,6 +1,6 @@
 import { Empleado } from "./empleado";
 
-export interface Event {
+export interface EventVeterinario {
     id: number;
     enfermedad: string;
     animal: string;
