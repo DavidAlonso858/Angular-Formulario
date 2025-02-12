@@ -4,7 +4,7 @@ export interface Event {
     id: number;
     enfermedad: string;
     animal: string;
-    categoria: 'log' | 'warn' | 'error';
+    categoria: 'leve' | 'moderada' | 'grave';
     fecha: Date;
     empleado: Empleado;
     cliente: string;

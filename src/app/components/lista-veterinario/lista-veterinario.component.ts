@@ -31,9 +31,9 @@ export class EventListComponent {
   // devuelve un void porque solo actualizo el objeto de eventsCount
   updateEventCount(): void {
     this.eventsCount = {
-      log: this.allEvents.filter(event => event.categoria === 'log').length,
-      warn: this.allEvents.filter(event => event.categoria === 'warn').length,
-      error: this.allEvents.filter(event => event.categoria === 'error').length
+      log: this.allEvents.filter(event => event.categoria === 'leve').length,
+      warn: this.allEvents.filter(event => event.categoria === 'moderada').length,
+      error: this.allEvents.filter(event => event.categoria === 'grave').length
     };
   }
 

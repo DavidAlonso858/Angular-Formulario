@@ -1,3 +1,4 @@
 body{
-    background: rgb(133, 194, 133);
+    background: rgb(133, 194, 133) !important; 
+    /* Si no pongo el important no me lo pilla por el bootstrap */
 }

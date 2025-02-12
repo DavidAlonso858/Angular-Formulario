@@ -1,9 +1,8 @@
-<div class="row">
   <button class="bg-warning" [routerLink]="['/']">Volver</button>
-</div>
-
+<br>
 <label class="m-2 mt-4">Filtrar por categoría:</label>
 <select [(ngModel)]="selectedCategory" (change)="filtradoCategoria(selectedCategory)">
+  <option >Todas</option>
   <option value="log">Log</option>
   <option value="warn">Warning</option>
   <option value="error">Error</option>

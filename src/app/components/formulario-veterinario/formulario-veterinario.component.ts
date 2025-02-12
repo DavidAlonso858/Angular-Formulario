@@ -25,7 +25,7 @@ export class FormularioVeterinario {
   eventForm: FormGroup;
   empleados: Empleado[] = [];
 
-  bsConfig = {
+  bsConfig = { // el calendario
     dateInputFormat: 'DD-MM-YYYY',
     isAnimated: true,
     containerClass: 'theme-green'
