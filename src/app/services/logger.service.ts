@@ -32,7 +32,7 @@ export class LoggerService {
 
   // luego de los : lo que ponemos es que devuelve esta funcion, en este caso 
   // un objeto con el numero de log, el numero de warn y el numero de error
-  getEventsCount(): { log: number; warn: number; error: number } {
+  getEventsCount(): { leve: number; moderada: number; grave: number } {
     return this.events.reduce(
       (counts, event) => {
         // lo suma segun el tipo detectado en el evento        
@@ -41,7 +41,7 @@ export class LoggerService {
         }
         return counts;
       },
-      { log: 0, warn: 0, error: 0 }
+      { leve: 0, moderada: 0, grave: 0 }
     );
   }
 }

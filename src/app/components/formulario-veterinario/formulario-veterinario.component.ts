@@ -39,11 +39,10 @@ export class FormularioVeterinario {
 
       enfermedad: ['', Validators.required],
       animal: ['', Validators.required],
-      categoria: ['log', Validators.required], // log por defecto
+      categoria: ['leve', Validators.required], // log por defecto
       fecha: [null, Validators.required],
       empleado: ['', Validators.required],
       cliente: ['', Validators.required],
-      status: [''],
     });
   }
 
