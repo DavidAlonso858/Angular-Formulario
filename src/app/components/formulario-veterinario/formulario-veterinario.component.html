@@ -11,8 +11,8 @@
         </div>
 
         <div class="formu-apartado">
-            <label>Descripción:</label>
-            <textarea formControlName="descripcion"></textarea>
+            <label>Animal:</label>
+            <input type="text" formControlName="animal"/>
         </div>
 
         <div class="formu-apartado">
@@ -28,7 +28,11 @@
 
         <div class="formu-apartado">
             <label>Empleado:</label>
-            <input formControlName="empleado" />
+            <select formControlName="empleado">
+
+                <option *ngFor="let empleado of empleados" value="{{empleado.id}}">{{empleado.nombre.toUpperCase()}} </option>
+                  
+            </select>
         </div>
 
         <div class="formu-apartado">

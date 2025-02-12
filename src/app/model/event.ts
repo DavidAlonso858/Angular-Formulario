@@ -4,7 +4,7 @@ import { Empleado } from "./empleado";
 export interface Event {
     id: number;
     enfermedad: string;
-    descripcion: string;
+    animal: string;
     categoria: 'log' | 'warn' | 'error';
     fecha: Date;
     empleado: Empleado;

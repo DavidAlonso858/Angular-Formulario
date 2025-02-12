@@ -21,26 +21,30 @@ import { RouterModule } from '@angular/router';
 })
 
 export class FormularioVeterinario {
-// objeto de tipo FormGroup, lo que hace es agrupar los campos del formulario 
+  // objeto de tipo FormGroup, lo que hace es agrupar los campos del formulario 
   eventForm: FormGroup;
 
   empleados: Empleado[] = [
     { id: 1, nombre: 'Paco' },
     { id: 2, nombre: 'Juana' },
+    { id: 3, nombre: 'Carmen' },
+    { id: 4, nombre: 'Andres' },
+    { id: 5, nombre: 'Zahira' },
+    { id: 6, nombre: 'Juan' },
   ];
 
   clientes: Cliente[] = [
-    { id: 1, name: 'Ivan', animal: 'perro' },
-    { id: 2, name: 'Maria', animal: 'huron' },
+    { id: 1, name: 'Ivan' },
+    { id: 2, name: 'Maria'},
   ];
 
-// en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
-//  y el loggerService para trabajar con los eventos
+  // en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
+  //  y el loggerService para trabajar con los eventos
   constructor(private fb: FormBuilder, private loggerService: LoggerService) {
     this.eventForm = this.fb.group({ // relleno los campos poniendo cual es requerido
 
-      enfermedad: ['', Validators.required], 
-      descripcion: ['', Validators.required],
+      enfermedad: ['', Validators.required],
+      animal: ['', Validators.required],
       categoria: ['log', Validators.required], // log por defecto
       fecha: [null, Validators.required],
       empleado: ['', Validators.required],
