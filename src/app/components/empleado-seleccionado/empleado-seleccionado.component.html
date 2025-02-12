@@ -1,1 +1,5 @@
-div
+<div class="empleado-info">
+  <h5 class="text-center">Empleado Seleccionado</h5>
+  <h2 class="fw-bold text-success text-center" *ngIf="empleado">{{ empleado.nombre }}</h2>
+  <p *ngIf="!empleado">Ningún empleado seleccionado</p>
+</div>

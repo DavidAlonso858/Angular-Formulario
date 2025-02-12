@@ -1,7 +1,7 @@
 <button class="bg-warning" [routerLink]="['/']">Volver</button>
-
-<app-empleado-seleccionado></app-empleado-seleccionado>
-
+<div class="container">
+    <app-empleado-seleccionado></app-empleado-seleccionado>
+</div>
 <div class="formu-container">
     <h2>Registrar Incidencia Veterinaria</h2>
     <!--Asocio el formulario HTML con el FormGroup del componente-->
@@ -40,7 +40,7 @@
         <div class="formu-apartado">
             <label>Empleado:</label>
             <!--LE PASO UN TIPO EVENT, QUE NO ES EVENTO DE LA PAGINA-->
-            <select formControlName="empleado" (change)="empleadoSeleccionado($event)">
+            <select formControlName="empleado" (change)="onEmpleadoSeleccionado($event)">
 
                 <option *ngFor="let empleado of empleados" value="{{empleado.id}}">{{empleado.nombre.toUpperCase()}}
                 </option>

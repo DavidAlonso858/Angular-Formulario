@@ -6,21 +6,27 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class EmpleadoService {
-  // URL QUE NOS DA AL EJECUTAR EL JSON
+  // URL que nos da los empleados
   url = "http://localhost:3000/empleados";
 
-  constructor(private http: HttpClient) { }
   private empleadoCambio = new BehaviorSubject<Empleado | null>(null);
   cambioEmpleado$ = this.empleadoCambio.asObservable();
 
-  updateEmpleado() {
-    return this.empleadoCambio.asObservable();
+  constructor(private http: HttpClient) { }
+
+  setEmpleadoSeleccionado(empleado: Empleado | null) {
+    console.log('Empleado seleccionado (Service):', empleado); // Depuración
+    this.empleadoCambio.next(empleado);
+    if (empleado) {
+      localStorage.setItem('empleadoSeleccionado', JSON.stringify(empleado));
+    } else {
+      localStorage.removeItem('empleadoSeleccionado');
+    }
   }
 
+  // Obtener empleados desde la API
   getEmpleados() {
     return this.http.get<Empleado[]>(this.url);
   }
-
 }

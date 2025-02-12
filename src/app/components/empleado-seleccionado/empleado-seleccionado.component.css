@@ -1,0 +1,10 @@
+.empleado-info {
+    border: 2px solid #4CAF50;
+    padding: 25px;
+    background-color: #f9f9f9;
+    width: 200px;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    border-radius: 10px;
+}

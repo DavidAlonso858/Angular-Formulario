@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // herramientas de angular para formularios reactivos
 import { EmpleadoService } from '../../services/empleado.service';
@@ -25,7 +25,6 @@ export class FormularioVeterinario {
   // objeto de tipo FormGroup, lo que hace es agrupar los campos del formulario 
   eventForm: FormGroup;
   empleados: Empleado[] = [];
-
   bsConfig = { // el calendario
     dateInputFormat: 'DD-MM-YYYY',
     isAnimated: true,
@@ -68,7 +67,15 @@ export class FormularioVeterinario {
     }
   }
 
-  empleadoSeleccionado(event: Event){
+  onEmpleadoSeleccionado(event: Event) {
+    const selectedId = (event.target as HTMLSelectElement).value; // pilla la id del Select
+    const selectedEmpleado = this.empleados.find(emp => emp.id.toString() === selectedId) || null;
+    // miro a ver si esta en el json de empleados
 
+    console.log('Empleado seleccionado:', selectedEmpleado); 
+  
+    // el empleado seleccionado en el servicio y en el localStorage
+    this.empleadoService.setEmpleadoSeleccionado(selectedEmpleado);
   }
-}
+  
+}  
