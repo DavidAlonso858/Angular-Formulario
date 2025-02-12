@@ -20,11 +20,14 @@ export class EmpleadoSeleccionadoComponent implements OnInit {
       console.log('Empleado recibido (Componente):', empleado); // Depuración
       this.empleado = empleado;
     });
-  
-    const storedEmpleado = localStorage.getItem('empleadoSeleccionado');
-    if (storedEmpleado) {
-      this.empleado = JSON.parse(storedEmpleado);
-      this.empleadoService.setEmpleadoSeleccionado(this.empleado);
+    
+    if (typeof localStorage !== 'undefined') {
+      const storedEmpleado = localStorage.getItem('empleadoSeleccionado');
+      if (storedEmpleado) {
+        this.empleado = JSON.parse(storedEmpleado);
+        this.empleadoService.setEmpleadoSeleccionado(this.empleado);
+
+      }
     }
   }
 }
