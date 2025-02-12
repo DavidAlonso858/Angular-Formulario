@@ -8,11 +8,18 @@
             <label>Enfermedad:</label>
             <input formControlName="enfermedad" required />
             <!--Conecto los campos con el campo del FormGroup-->
+            <div *ngIf="eventForm.get('enfermedad')?.invalid && eventForm.get('enfermedad')?.touched"
+                class="text-danger">
+                el nombre de la enfermedad es requerida
+            </div>
         </div>
 
         <div class="formu-apartado">
             <label>Animal:</label>
             <input type="text" formControlName="animal" />
+            <div *ngIf="eventForm.get('animal')?.invalid && eventForm.get('animal')?.touched" class="text-danger">
+                la raza de animal es requerida
+            </div>
         </div>
 
         <div class="formu-apartado">
@@ -34,17 +41,25 @@
                 </option>
 
             </select>
+            <div *ngIf="eventForm.get('empleado')?.invalid && eventForm.get('empleado')?.touched" class="text-danger">
+                el empleado que le atienda es requerido
+            </div>
         </div>
 
         <div class="formu-apartado">
             <label>Cliente:</label>
             <input formControlName="cliente" />
+            <div *ngIf="eventForm.get('cliente')?.invalid && eventForm.get('cliente')?.touched" class="text-danger">
+                El cliente es requerido
+            </div>
         </div>
 
         <div class="formu-apartado">
             <label>Fecha:</label>
-            <input type="text" formControlName="fecha" placeholder="DD-MM-YY" bsDatepicker
-                [bsConfig]="bsConfig" />
+            <input type="text" formControlName="fecha" placeholder="DD-MM-YY" bsDatepicker [bsConfig]="bsConfig" />
+            <div *ngIf="eventForm.get('fecha')?.invalid && eventForm.get('fecha')?.touched" class="text-danger">
+                la fecha del suceso es requerida
+            </div>
         </div>
 
         <button type="submit">Registrar Evento</button>

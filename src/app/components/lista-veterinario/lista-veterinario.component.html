@@ -2,10 +2,10 @@
 <br>
 <label class="m-2 mt-4">Filtrar por categoría:</label>
 <select [(ngModel)]="selectedCategory" (change)="filtradoCategoria(selectedCategory)">
-  <option >Todas</option>
-  <option value="log">Log</option>
-  <option value="warn">Warning</option>
-  <option value="error">Error</option>
+  <option value="" >Todas</option>
+  <option value="leve">Leve</option>
+  <option value="moderada">Moderada</option>
+  <option value="grave">Grave</option>
 </select>
 
 <ul>

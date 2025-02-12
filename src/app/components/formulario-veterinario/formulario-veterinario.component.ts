@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // herramientas de angular para formularios reactivos
-import { LoggerService } from '../../services/logger.service';
-// servicio que almacena los eventos
 import { EmpleadoService } from '../../services/empleado.service';
+// servicio que almacena los eventos
+import { EventosService } from '../../services/evento.service';
 import { Empleado } from '../../model/empleado';
 import { Event } from '../../model/event';
 // las interfaces (modelos)
@@ -33,11 +33,11 @@ export class FormularioVeterinario {
 
   // en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
   //  y el loggerService para trabajar con los eventos
-  constructor(private fb: FormBuilder, private loggerService: LoggerService, private empleadoService: EmpleadoService) {
+  constructor(private fb: FormBuilder, private eventoService: EventosService, private empleadoService: EmpleadoService) {
 
     this.eventForm = this.fb.group({ // relleno los campos poniendo cual es requerido
 
-      enfermedad: ['', Validators.required],
+      enfermedad: ['', [Validators.required, Validators.minLength(4)]],
       animal: ['', Validators.required],
       categoria: ['leve', Validators.required], // log por defecto
       fecha: [null, Validators.required],
@@ -62,7 +62,7 @@ export class FormularioVeterinario {
         ...this.eventForm.value, // y copiando los datos del evento
         fechaCreacion: new Date(), // pongo la fecha de creacion
       };
-      this.loggerService.addEvent(newEvent); // lo añado al service
+      this.eventoService.addEvento(newEvent); // lo añado al service
       this.eventForm.reset(); // reseteo los valores que ya los he copiado
     }
   }

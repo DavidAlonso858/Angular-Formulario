@@ -1,47 +1,47 @@
-import { Injectable } from '@angular/core';
-import { Event } from '../model/event';
+// import { Injectable } from '@angular/core';
+// import { Event } from '../model/event';
 
-// puede marcar este servicio en otros componentes u otros servicios 
-@Injectable({
-  providedIn: 'root',
-})
+// // puede marcar este servicio en otros componentes u otros servicios 
+// @Injectable({
+//   providedIn: 'root',
+// })
 
-export class LoggerService {
-  private events: Event[] = []; // almaceno los eventos del modelo 
+// export class LoggerService {
+//   private events: Event[] = []; // almaceno los eventos del modelo 
 
-  constructor() { }
+//   constructor() { }
   
-  // funcion que el paso el parametro evento para aagregarlo
-  addEvent(event: Event): void {
-    this.events.push(event);
-  }
+//   // funcion que el paso el parametro evento para aagregarlo
+//   addEvent(event: Event): void {
+//     this.events.push(event);
+//   }
 
-  /* si se pasa categoria devuelve los de esa, sino devuelve todos
+//   /* si se pasa categoria devuelve los de esa, sino devuelve todos
   
-  getEvents(categoria?: 'log' | 'warn' | 'error'): Event[] {
-    return categoria ? this.events.filter(event => event.categoria === categoria) : this.events;
-  }
+//   getEvents(categoria?: 'log' | 'warn' | 'error'): Event[] {
+//     return categoria ? this.events.filter(event => event.categoria === categoria) : this.events;
+//   }
   
-  */
+//   */
 
-  // Hay una funcion de filtrado en el lista-veterinario
-  //  por eso he simplificado esta funcion del service 
-  getEvents(): Event[] {
-    return this.events;
-  }
+//   // Hay una funcion de filtrado en el lista-veterinario
+//   //  por eso he simplificado esta funcion del service 
+//   getEvents(): Event[] {
+//     return this.events;
+//   }
 
-  // luego de los : lo que ponemos es que devuelve esta funcion, en este caso 
-  // un objeto con el numero de log, el numero de warn y el numero de error
-  getEventsCount(): { leve: number; moderada: number; grave: number } {
-    return this.events.reduce(
-      (counts, event) => {
-        // lo suma segun el tipo detectado en el evento        
-        if (counts[event.categoria] !== undefined) {
-          counts[event.categoria]++;
-        }
-        return counts;
-      },
-      { leve: 0, moderada: 0, grave: 0 }
-    );
-  }
-}
+//   // luego de los : lo que ponemos es que devuelve esta funcion, en este caso 
+//   // un objeto con el numero de log, el numero de warn y el numero de error
+//   getEventsCount(): { leve: number; moderada: number; grave: number } {
+//     return this.events.reduce(
+//       (counts, event) => {
+//         // lo suma segun el tipo detectado en el evento        
+//         if (counts[event.categoria] !== undefined) {
+//           counts[event.categoria]++;
+//         }
+//         return counts;
+//       },
+//       { leve: 0, moderada: 0, grave: 0 }
+//     );
+//   }
+// }
