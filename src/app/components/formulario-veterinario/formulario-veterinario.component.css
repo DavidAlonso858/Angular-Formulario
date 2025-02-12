@@ -2,15 +2,11 @@
     background-color: #f9f9f9;
     padding: 30px;
     border: 3px solid #2c6b4f;
-    /* Borde más grueso */
     border-radius: 15px;
     max-width: 400px;
     margin: 40px auto;
-    /* Centrado */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra suave */
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .formu-container h2 {
@@ -27,7 +23,6 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #333;
 }
 
 input,

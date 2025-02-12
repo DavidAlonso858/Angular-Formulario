@@ -8,4 +8,3 @@ export const routes: Routes = [
   { path: 'events', component: EventListComponent },
   { path: 'formu', component: FormularioVeterinario }
 ];
-

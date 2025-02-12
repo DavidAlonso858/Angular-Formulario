@@ -3,19 +3,19 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 // herramientas de angular para formularios reactivos
 import { LoggerService } from '../../services/logger.service';
 // servicio que almacena los eventos
+import { EmpleadoService } from '../../services/empleado.service';
 import { Empleado } from '../../model/empleado';
 import { Cliente } from '../../model/cliente';
 import { Event } from '../../model/event';
 // las interfaces (modelos)
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
 @Component({
   selector: 'app-event-form',
   standalone: true,
   // permite que funcione de forma independiente por eso mejor 
   // lo pongo siempre que a veces da fallo
-  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule,],
   templateUrl: './formulario-veterinario.component.html',
   styleUrls: ['./formulario-veterinario.component.css']
 })
@@ -23,24 +23,17 @@ import { RouterModule } from '@angular/router';
 export class FormularioVeterinario {
   // objeto de tipo FormGroup, lo que hace es agrupar los campos del formulario 
   eventForm: FormGroup;
-
-  empleados: Empleado[] = [
-    { id: 1, nombre: 'Paco' },
-    { id: 2, nombre: 'Juana' },
-    { id: 3, nombre: 'Carmen' },
-    { id: 4, nombre: 'Andres' },
-    { id: 5, nombre: 'Zahira' },
-    { id: 6, nombre: 'Juan' },
-  ];
+  empleados: Empleado[] = [];
 
   clientes: Cliente[] = [
     { id: 1, name: 'Ivan' },
-    { id: 2, name: 'Maria'},
+    { id: 2, name: 'Maria' },
   ];
 
   // en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
   //  y el loggerService para trabajar con los eventos
-  constructor(private fb: FormBuilder, private loggerService: LoggerService) {
+  constructor(private fb: FormBuilder, private loggerService: LoggerService, private empleadoService: EmpleadoService) {
+
     this.eventForm = this.fb.group({ // relleno los campos poniendo cual es requerido
 
       enfermedad: ['', Validators.required],
@@ -51,6 +44,13 @@ export class FormularioVeterinario {
       cliente: ['', Validators.required],
       status: [''],
     });
+  }
+  
+  ngOnInit() {
+    this.empleadoService.getEmpleados().subscribe((e) => {
+      this.empleados = e;
+    });
+    console.log(this.empleados);
   }
 
   onSubmit() {
