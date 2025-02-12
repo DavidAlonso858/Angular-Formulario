@@ -12,7 +12,7 @@
 
         <div class="formu-apartado">
             <label>Animal:</label>
-            <input type="text" formControlName="animal"/>
+            <input type="text" formControlName="animal" />
         </div>
 
         <div class="formu-apartado">
@@ -30,8 +30,9 @@
             <label>Empleado:</label>
             <select formControlName="empleado">
 
-                <option *ngFor="let empleado of empleados" value="{{empleado.id}}">{{empleado.nombre.toUpperCase()}} </option>
-                  
+                <option *ngFor="let empleado of empleados" value="{{empleado.id}}">{{empleado.nombre.toUpperCase()}}
+                </option>
+
             </select>
         </div>
 
@@ -42,7 +43,8 @@
 
         <div class="formu-apartado">
             <label>Fecha:</label>
-            <input type="date" formControlName="fecha" />
+            <input type="text" formControlName="fecha" placeholder="DD-MM-YY" bsDatepicker
+                [bsConfig]="bsConfig" />
         </div>
 
         <button type="submit">Registrar Evento</button>

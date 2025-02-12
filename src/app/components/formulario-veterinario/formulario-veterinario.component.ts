@@ -9,12 +9,13 @@ import { Event } from '../../model/event';
 // las interfaces (modelos)
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @Component({
   selector: 'app-event-form',
   standalone: true,
   // permite que funcione de forma independiente por eso mejor 
   // lo pongo siempre que a veces da fallo
-  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule,],
+  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule, BsDatepickerModule],
   templateUrl: './formulario-veterinario.component.html',
   styleUrls: ['./formulario-veterinario.component.css']
 })
@@ -23,6 +24,12 @@ export class FormularioVeterinario {
   // objeto de tipo FormGroup, lo que hace es agrupar los campos del formulario 
   eventForm: FormGroup;
   empleados: Empleado[] = [];
+
+  bsConfig = {
+    dateInputFormat: 'DD-MM-YYYY',
+    isAnimated: true,
+    containerClass: 'theme-green'
+  }
 
   // en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
   //  y el loggerService para trabajar con los eventos
