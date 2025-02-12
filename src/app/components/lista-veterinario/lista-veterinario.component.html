@@ -11,6 +11,6 @@
 
 <ul>
   <li *ngFor="let event of events">
-    {{ event.enfermedad }} - {{ event.animal }} - {{ event.categoria }} - {{ event.fechaCreacion| date }}
+    {{ event.enfermedad.toUpperCase() }} - {{ event.animal.toUpperCase() }} - {{ event.categoria.toUpperCase() }} - {{ event.fechaCreacion| date }} - {{ event.cliente}} 
   </li>
 </ul>

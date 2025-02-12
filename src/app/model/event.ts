@@ -1,4 +1,3 @@
-import { Cliente } from "./cliente";
 import { Empleado } from "./empleado";
 
 export interface Event {
@@ -8,6 +7,6 @@ export interface Event {
     categoria: 'log' | 'warn' | 'error';
     fecha: Date;
     empleado: Empleado;
-    cliente: Cliente;
+    cliente: string;
     fechaCreacion: Date;
 }

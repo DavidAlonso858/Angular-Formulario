@@ -5,7 +5,6 @@ import { LoggerService } from '../../services/logger.service';
 // servicio que almacena los eventos
 import { EmpleadoService } from '../../services/empleado.service';
 import { Empleado } from '../../model/empleado';
-import { Cliente } from '../../model/cliente';
 import { Event } from '../../model/event';
 // las interfaces (modelos)
 import { CommonModule } from '@angular/common';
@@ -25,11 +24,6 @@ export class FormularioVeterinario {
   eventForm: FormGroup;
   empleados: Empleado[] = [];
 
-  clientes: Cliente[] = [
-    { id: 1, name: 'Ivan' },
-    { id: 2, name: 'Maria' },
-  ];
-
   // en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
   //  y el loggerService para trabajar con los eventos
   constructor(private fb: FormBuilder, private loggerService: LoggerService, private empleadoService: EmpleadoService) {
@@ -45,10 +39,12 @@ export class FormularioVeterinario {
       status: [''],
     });
   }
-  
+
+  // lo suscribo del service de empleado
   ngOnInit() {
     this.empleadoService.getEmpleados().subscribe((e) => {
       this.empleados = e;
+      // guardo en el array cada empleado conseguido de la funcion que los pilla del json
     });
     console.log(this.empleados);
   }
