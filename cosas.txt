@@ -1,0 +1,22 @@
+convertir el empleado del formulario en un select 
+y que cuando 
+lo seleccione haga un cambio en el navbar
+
+
+
+hacer un service solo para esto
+
+cambioEmpleado = this.cambioEmpleadoSubject.asObservable();
+
+updateEmpleado(VALUE:ANY){
+    this.cambioEmpleado.next(value);
+}
+
+
+this.myForm.get('empleado')?.valueChanges.subscribe(value =>{
+this.formEmpService.updateEmpleado(value);
+})
+
+luego aplicarlo tambien el navbar
+empleado : string = "";
+
