@@ -13,7 +13,7 @@
             <div *ngIf="eventForm.get('enfermedad')?.invalid && eventForm.get('enfermedad')?.touched"
                 class="text-danger">
                 <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
-                el nombre de la enfermedad es requerida
+                el nombre de la enfermedad es requerida y tiene que tener más de 3 letras
             </div>
         </div>
 
