@@ -19,3 +19,60 @@ button {
     font-size: 16px;
     transition: background 0.3s ease;
 }
+
+.moderada {
+    padding: 3px;
+    border-radius: 12%;
+    background-color: orange;
+    color: white;
+}
+
+.grave {
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 12%;
+}
+
+.leve {
+    background-color: blue;
+    color: white;
+    padding: 3px;
+    border-radius: 12%;
+}
+
+thead {
+    background: #004466;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0px 20px 15px rgba(29, 56, 24, 0.1);
+    border: 2px solid green;
+}
+
+tbody {
+    font-weight: bold;
+}
+
+table {
+    background: white;
+    box-shadow: 0px 20px 15px rgba(29, 56, 24, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+th {
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+    font-weight: bold;
+}
+
+tr {
+    border: 2px solid green;
+}

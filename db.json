@@ -32,7 +32,10 @@
             "animal": "perro",
             "categoria": "leve",
             "fecha": "2021-07-01",
-            "empleado": 1,
+            "empleado": {
+                "id": 1,
+                "nombre": "Paco"
+            },
             "cliente": "David",
             "fechaCreacion": "2025-01-13"
         },
@@ -42,7 +45,10 @@
             "animal": "gato",
             "categoria": "moderada",
             "fecha": "2022-08-01",
-            "empleado": 2,
+            "empleado": {
+                "id": 1,
+                "nombre": "Paco"
+            },
             "cliente": "David",
             "fechaCreacion": "2025-01-13"
         },
@@ -52,7 +58,10 @@
             "animal": "huron",
             "categoria": "grave",
             "fecha": "2024-01-01",
-            "empleado": 1,
+            "empleado": {
+                "id": 1,
+                "nombre": "Paco"
+            },
             "cliente": "David",
             "fechaCreacion": "2025-01-13"
         }

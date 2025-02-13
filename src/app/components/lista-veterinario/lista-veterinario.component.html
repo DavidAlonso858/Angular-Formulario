@@ -1,15 +1,33 @@
-  <button class="bg-warning" [routerLink]="['/']">Volver</button>
+<button class="bg-warning" [routerLink]="['/']">Volver</button>
 <br>
 <label class="m-2 mt-4">Filtrar por categoría:</label>
 <select [(ngModel)]="selectedCategory" (change)="filtradoCategoria(selectedCategory)">
-  <option value="" >Todas</option>
+  <option value="">Todas</option>
   <option value="leve">Leve</option>
   <option value="moderada">Moderada</option>
   <option value="grave">Grave</option>
 </select>
 
-<ul>
-  <li *ngFor="let event of events">
-    {{ event.enfermedad.toUpperCase() }} - {{ event.animal.toUpperCase() }} - {{ event.categoria.toUpperCase() }} - {{ event.fechaCreacion| date }} - {{ event.cliente}} 
-  </li>
-</ul>
+
+<table class="container mt-5 mx-auto bg-white p-3">
+  <thead>
+    <th>Enfermedad</th>
+    <th>Animal</th>
+    <th>Empleado Encargado</th>
+    <th>Cliente</th>
+    <th>Categoría</th>
+  </thead>
+  <tbody >
+    <tr *ngFor="let event of events">
+      <td>{{ event.enfermedad.toUpperCase() }}</td>
+      <td>{{ event.animal.toUpperCase() }}</td>
+      <td>{{ event.empleado.nombre }}</td>
+      <td>{{ event.cliente }}</td>
+      <td>
+        <span [ngClass]="event.categoria"> <!--Simplemente para aplicarle color por categoria en el CSS-->
+          {{ event.categoria.toUpperCase() }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
