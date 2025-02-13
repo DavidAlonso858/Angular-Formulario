@@ -8,6 +8,12 @@
   <option value="grave">Grave</option>
 </select>
 
+<div class="d-flex justify-content-end mr-4">
+  <p class="mr-4 text-primary fs-4"><i class="bi bi-bandaid-fill"><span class="ml-1">{{eventsCount.leve}}</span></i></p> <!--Conteo-->
+  <p class="mr-4 text-warning fs-4"><i class="bi bi-exclamation-triangle-fill"><span class="ml-2">{{eventsCount.moderada}}</span></i></p>
+  <!--Conteo-->
+  <p class="mr-4 text-danger fs-4"><i class="bi bi-clipboard2-pulse-fill"><span class="ml-1">{{eventsCount.grave}}</span></i></p> <!--Conteo-->
+</div>
 
 <table class="container mt-5 mx-auto bg-white p-3">
   <thead>
@@ -32,8 +38,3 @@
   </tbody>
 
 </table>
-<div class="text-center">
-  <p>{{eventsCount.leve}}</p> <!--Conteo-->
-  <p>{{eventsCount.grave}}</p> <!--Conteo-->
-  <p>{{eventsCount.moderada}}</p> <!--Conteo-->
-</div>
