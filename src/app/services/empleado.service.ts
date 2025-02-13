@@ -12,7 +12,7 @@ export class EmpleadoService {
 
   private empleadoCambio = new BehaviorSubject<Empleado | null>(null); // notifica cuando cambia el empleado seleccionado
   cambioEmpleado$ = this.empleadoCambio.asObservable();
-  // lo convierte en un observable
+  // lo convierte en un observable (hay que poner el $ para indicar que es observable)
 
   constructor(private http: HttpClient) { }
 

@@ -28,7 +28,7 @@
     "eventos": [
         {
             "id": 1,
-            "enfermedad": "saranpion",
+            "enfermedad": "resfriado",
             "animal": "perro",
             "categoria": "leve",
             "fecha": "2021-07-01",
