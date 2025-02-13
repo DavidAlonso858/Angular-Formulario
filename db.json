@@ -1,69 +1,82 @@
 {
-    "empleados": [
-        {
-            "id": 1,
-            "nombre": "Paco"
-        },
-        {
-            "id": 2,
-            "nombre": "Juana"
-        },
-        {
-            "id": 3,
-            "nombre": "Carmen"
-        },
-        {
-            "id": 4,
-            "nombre": "Zahira"
-        },
-        {
-            "id": 5,
-            "nombre": "Andres"
-        },
-        {
-            "id": 6,
-            "nombre": "Juan"
-        }
-    ],
-    "eventos": [
-        {
-            "id": 1,
-            "enfermedad": "resfriado",
-            "animal": "perro",
-            "categoria": "leve",
-            "fecha": "2021-07-01",
-            "empleado": {
-                "id": 1,
-                "nombre": "Paco"
-            },
-            "cliente": "David",
-            "fechaCreacion": "2025-01-13"
-        },
-        {
-            "id": 2,
-            "enfermedad": "pierna mala",
-            "animal": "gato",
-            "categoria": "moderada",
-            "fecha": "2022-08-01",
-            "empleado": {
-                "id": 1,
-                "nombre": "Paco"
-            },
-            "cliente": "David",
-            "fechaCreacion": "2025-01-13"
-        },
-        {
-            "id": 3,
-            "enfermedad": "rabia",
-            "animal": "huron",
-            "categoria": "grave",
-            "fecha": "2024-01-01",
-            "empleado": {
-                "id": 1,
-                "nombre": "Paco"
-            },
-            "cliente": "David",
-            "fechaCreacion": "2025-01-13"
-        }
-    ]
+  "empleados": [
+    {
+      "id": "1",
+      "nombre": "Paco"
+    },
+    {
+      "id": "2",
+      "nombre": "Juana"
+    },
+    {
+      "id": "3",
+      "nombre": "Carmen"
+    },
+    {
+      "id": "4",
+      "nombre": "Zahira"
+    },
+    {
+      "id": "5",
+      "nombre": "Andres"
+    },
+    {
+      "id": "6",
+      "nombre": "Juan"
+    }
+  ],
+  "eventos": [
+    {
+      "id": "1",
+      "enfermedad": "resfriado",
+      "animal": "perro",
+      "categoria": "leve",
+      "fecha": "2021-07-01",
+      "empleado": {
+        "id": 1,
+        "nombre": "Paco"
+      },
+      "cliente": "David",
+      "fechaCreacion": "2025-01-13"
+    },
+    {
+      "id": "2",
+      "enfermedad": "pierna mala",
+      "animal": "gato",
+      "categoria": "moderada",
+      "fecha": "2022-08-01",
+      "empleado": {
+        "id": 1,
+        "nombre": "Paco"
+      },
+      "cliente": "David",
+      "fechaCreacion": "2025-01-13"
+    },
+    {
+      "id": "3",
+      "enfermedad": "rabia",
+      "animal": "huron",
+      "categoria": "grave",
+      "fecha": "2024-01-01",
+      "empleado": {
+        "id": 1,
+        "nombre": "Paco"
+      },
+      "cliente": "David",
+      "fechaCreacion": "2025-01-13"
+    },
+    {
+      "id": 4,
+      "enfermedad": "Hepatitis",
+      "animal": "zarigüeya",
+      "categoria": "moderada",
+      "fecha": "2002-09-01T22:00:00.000Z",
+      "empleado": {
+        "id": "6",
+        "nombre": "Juan"
+      },
+      "cliente": "Ivan",
+      "fechaCreacion": "2025-02-13T18:21:02.334Z"
+    }
+  ]
 }

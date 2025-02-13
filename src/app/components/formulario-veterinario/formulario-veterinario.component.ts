@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // herramientas de angular para formularios reactivos
 import { EmpleadoService } from '../../services/empleado.service';
@@ -23,6 +23,7 @@ import { EmpleadoSeleccionadoComponent } from "../empleado-seleccionado/empleado
 
 export class FormularioVeterinario {
   // objeto de tipo FormGroup, lo que hace es agrupar los campos del formulario 
+  eventos: EventVeterinario[] = [];
   eventForm: FormGroup;
   empleados: Empleado[] = [];
   bsConfig = { // el calendario
@@ -41,7 +42,7 @@ export class FormularioVeterinario {
       animal: ['', Validators.required],
       categoria: ['leve', Validators.required], // log por defecto
       fecha: [null, Validators.required],
-      empleado: ['', Validators.required],
+      empleado: ['', Validators.required], // guarda la id pero luego en el onSubmit consigo el empleado entero
       cliente: ['', Validators.required],
     });
   }
@@ -52,18 +53,32 @@ export class FormularioVeterinario {
       this.empleados = e;
       // guardo en el array cada empleado conseguido de la funcion que los pilla del json
     });
+    this.eventoService.getEventos().subscribe((ev) => {
+      this.eventos = ev;
+    });
     console.log(this.empleados);
   }
 
   onSubmit() {
     if (this.eventForm.valid) { // si los datos introducidos son validos
-      const newEvent: EventVeterinario = { // creo un evento con una id unica
-        id: Date.now(),
-        ...this.eventForm.value, // y copiando los datos del evento
-        fechaCreacion: new Date(), // pongo la fecha de creacion
-      };
-      this.eventoService.addEvento(newEvent); // lo añado al service
-      this.eventForm.reset(); // reseteo los valores que ya los he copiado
+      this.eventoService.getEventos().subscribe(eventos => {
+        const newId = eventos.length + 1 // tengo que recorrerlo para acceder bien
+
+        const empleadoId = this.eventForm.value.empleado;
+        this.empleadoService.getEmpleado(empleadoId).subscribe(empleado => {
+          const newEvent: EventVeterinario = { // creo un evento con una id unica
+            id: newId,
+            ...this.eventForm.value, // y copiando los datos del evento
+            empleado: empleado,
+            fechaCreacion: new Date(), // pongo la fecha de creacion
+          };
+
+          this.eventoService.addEvento(newEvent).subscribe(() => {
+            this.eventos.push(newEvent);
+            this.eventForm.reset(); // reseteo los valores que ya los he copiado
+          });
+        });
+      });
     }
   }
 
@@ -72,10 +87,10 @@ export class FormularioVeterinario {
     const selectedEmpleado = this.empleados.find(emp => emp.id.toString() === selectedId) || null;
     // miro a ver si esta en el json de empleados
 
-    console.log('Empleado seleccionado:', selectedEmpleado); 
-  
+    console.log('Empleado seleccionado:', selectedEmpleado);
+
     // el empleado seleccionado en el servicio y en el localStorage
     this.empleadoService.setEmpleadoSeleccionado(selectedEmpleado);
   }
-  
+
 }  

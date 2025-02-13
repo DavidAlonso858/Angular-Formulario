@@ -19,7 +19,7 @@ export class EmpleadoSeleccionadoComponent implements OnInit {
   ngOnInit() {
     // se suscribe al observable
     this.empleadoService.cambioEmpleado$.subscribe((empleado: Empleado | null) => {
-      console.log('Empleado recibido (Componente):', empleado); // Depuración
+      console.log('Empleado recibido (Componente):', empleado); 
       this.empleado = empleado; // y se almacena en la variable de este componente
     });
 
