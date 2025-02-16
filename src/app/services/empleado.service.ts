@@ -34,7 +34,11 @@ export class EmpleadoService {
     return this.http.get<Empleado[]>(this.url);
   }
 
-getEmpleado(id: number) {
-  return this.http.get<Empleado>(`${this.url}/${id}`);
-}
+  getEmpleado(id: number) {
+    return this.http.get<Empleado>(`${this.url}/${id}`);
+  }
+
+  addEmpleado(empleado: Empleado) {
+    return this.http.post(this.url, empleado);
+  }
 }

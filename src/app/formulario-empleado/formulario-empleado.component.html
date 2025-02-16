@@ -1,0 +1,20 @@
+<button class="bg-warning" [routerLink]="['/']">Volver</button>
+
+<div class="formu-container">
+    <h2>Registrar Incidencia Veterinaria</h2>
+    <!--Asocio el formulario HTML con el FormGroup del componente-->
+    <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()"> <!--llamo al enviar formulario-->
+        <div class="formu-apartado">
+            <label>Nombre:</label>
+            <input formControlName="nombre" required />
+            <!--Conecto los campos con el campo del FormGroup-->
+            <div *ngIf="empleadoForm.get('nombre')?.invalid && empleadoForm.get('nombre')?.touched" class="text-danger">
+                <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
+                el nombre del empleado es requerido y tiene que tener más de 3 letras
+            </div>
+        </div>
+
+        <button type="submit">Registrar Empleado</button>
+        <!--No olvidar el type=submit para que active el ngSubmit-->
+    </form>
+</div>
