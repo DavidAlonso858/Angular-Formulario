@@ -31,21 +31,18 @@ export class FormularioEmpleadoComponent {
 
   onSubmit() {
     if (this.empleadoForm.valid) {
-      this.empleadoService.getEmpleados().subscribe((em) => {
-        const newId = this.empleados.length + 1;
-        const newEmpledo: Empleado = {
-          id: newId,
-          ...this.empleadoForm.value,
-        };
+      const newId = this.empleados.length + 1;
+      
+      const newEmpledo: Empleado = {
+        id: newId,
+        ...this.empleadoForm.value,
+      }
 
-        this.empleadoService.addEmpleado(newEmpledo).subscribe(() => {
-          this.empleados.push(newEmpledo);
-          this.empleadoForm.reset();
-        })
-
-
+      this.empleadoService.addEmpleado(newEmpledo).subscribe(() => {
+        this.empleados.push(newEmpledo);
+        this.empleadoForm.reset();
       })
+      
     }
-
   }
 }
