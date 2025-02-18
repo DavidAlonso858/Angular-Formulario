@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EventVeterinario} from '../model/eventVeterinario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

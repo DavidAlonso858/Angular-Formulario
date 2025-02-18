@@ -58,19 +58,6 @@
     },
     {
       "id": "3",
-      "enfermedad": "Hepatitis",
-      "animal": "pez",
-      "categoria": "moderada",
-      "fecha": "2025-02-03T12:40:20.000Z",
-      "empleado": {
-        "id": "4",
-        "nombre": "Zahira"
-      },
-      "cliente": "Ivan",
-      "fechaCreacion": "2025-02-18T12:40:47.767Z"
-    },
-    {
-      "id": 4,
       "enfermedad": "Pierna Mala",
       "animal": "Huron",
       "categoria": "grave",

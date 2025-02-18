@@ -63,11 +63,12 @@ export class FormularioVeterinario {
     if (this.eventForm.valid) { // si los datos introducidos son validos
       this.eventoService.getEventos().subscribe(eventos => {
         const newId = eventos.length + 1 // tengo que recorrerlo para acceder bien
+        const idString = String(newId) // pasarlo para comperarlo bien
 
         const empleadoId = this.eventForm.value.empleado;
         this.empleadoService.getEmpleado(empleadoId).subscribe(empleado => {
           const newEvent: EventVeterinario = { // creo un evento con una id unica
-            id: newId,
+            id: idString,
             ...this.eventForm.value, // y copiando los datos del evento
             empleado: empleado,
             fechaCreacion: new Date(), // pongo la fecha de creacion

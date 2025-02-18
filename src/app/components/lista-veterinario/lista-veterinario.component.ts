@@ -66,6 +66,7 @@ export class EventListComponent {
     this.eventoService.deleteEvento(id).subscribe(() => {
       this.recargarEventos();
     });
+
   }
 
 }
