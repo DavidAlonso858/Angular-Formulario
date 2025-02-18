@@ -41,4 +41,5 @@ export class EmpleadoService {
   addEmpleado(empleado: Empleado) {
     return this.http.post(this.url, empleado);
   }
+
 }

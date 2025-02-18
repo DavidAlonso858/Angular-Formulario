@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventosService } from '../../services/evento.service';
 import { EventVeterinario } from '../../model/eventVeterinario';
@@ -19,6 +19,7 @@ export class EventListComponent {
   allEvents: EventVeterinario[] = []; // usado para almacenar los eventos del service
   events: EventVeterinario[] = []; // para almacenar los eventos filtrado por una categoria
   eventsCount = { leve: 0, moderada: 0, grave: 0 };
+
   selectedCategory: string = '';
   constructor(private eventoService: EventosService) { }
 
@@ -53,4 +54,18 @@ export class EventListComponent {
       this.events = [...this.allEvents];
     }
   }
+
+  recargarEventos() {
+    this.eventoService.getEventos().subscribe(ev => {
+      this.allEvents = ev;
+      this.events = [...this.allEvents];  // Actualiza la lista visible
+    });
+  }
+
+  borradoEvento(id: number) {
+    this.eventoService.deleteEvento(id).subscribe(() => {
+      this.recargarEventos();
+    });
+  }
+
 }

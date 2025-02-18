@@ -25,12 +25,8 @@
       "nombre": "Juan"
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "David"
-    },
-    {
-      "id": 8,
-      "nombre": "Marco"
     }
   ],
   "eventos": [
@@ -62,29 +58,29 @@
     },
     {
       "id": "3",
-      "enfermedad": "rabia",
-      "animal": "huron",
-      "categoria": "grave",
-      "fecha": "2024-01-01",
-      "empleado": {
-        "id": 1,
-        "nombre": "Paco"
-      },
-      "cliente": "David",
-      "fechaCreacion": "2025-01-13"
-    },
-    {
-      "id": "4",
       "enfermedad": "Hepatitis",
-      "animal": "zarigüeya",
+      "animal": "pez",
       "categoria": "moderada",
-      "fecha": "2002-09-01T22:00:00.000Z",
+      "fecha": "2025-02-03T12:40:20.000Z",
       "empleado": {
-        "id": "6",
-        "nombre": "Juan"
+        "id": "4",
+        "nombre": "Zahira"
       },
       "cliente": "Ivan",
-      "fechaCreacion": "2025-02-13T18:21:02.334Z"
+      "fechaCreacion": "2025-02-18T12:40:47.767Z"
+    },
+    {
+      "id": 4,
+      "enfermedad": "Pierna Mala",
+      "animal": "Huron",
+      "categoria": "grave",
+      "fecha": "2025-02-04T12:50:16.000Z",
+      "empleado": {
+        "id": "2",
+        "nombre": "Juana"
+      },
+      "cliente": "Ivan",
+      "fechaCreacion": "2025-02-18T12:51:06.495Z"
     }
   ]
 }

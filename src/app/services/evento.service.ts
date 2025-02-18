@@ -18,4 +18,8 @@ export class EventosService {
   addEvento(evento: EventVeterinario) {
     return this.http.post(this.url, evento);
   }
+
+  deleteEvento(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }

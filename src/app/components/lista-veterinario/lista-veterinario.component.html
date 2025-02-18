@@ -9,10 +9,13 @@
 </select>
 
 <div class="d-flex justify-content-end mr-4">
-  <p class="mr-4 text-primary fs-4"><i class="bi bi-bandaid-fill"><span class="ml-1">{{eventsCount.leve}}</span></i></p> <!--Conteo-->
-  <p class="mr-4 text-warning fs-4"><i class="bi bi-exclamation-triangle-fill"><span class="ml-2">{{eventsCount.moderada}}</span></i></p>
+  <p class="mr-4 text-primary fs-4"><i class="bi bi-bandaid-fill"><span class="ml-1">{{eventsCount.leve}}</span></i></p>
   <!--Conteo-->
-  <p class="mr-4 text-danger fs-4"><i class="bi bi-clipboard2-pulse-fill"><span class="ml-1">{{eventsCount.grave}}</span></i></p> <!--Conteo-->
+  <p class="mr-4 text-warning fs-4"><i class="bi bi-exclamation-triangle-fill"><span
+        class="ml-2">{{eventsCount.moderada}}</span></i></p>
+  <!--Conteo-->
+  <p class="mr-4 text-danger fs-4"><i class="bi bi-clipboard2-pulse-fill"><span
+        class="ml-1">{{eventsCount.grave}}</span></i></p> <!--Conteo-->
 </div>
 
 <table class="container mt-5 mx-auto bg-white p-3">
@@ -22,6 +25,7 @@
     <th>Empleado Encargado</th>
     <th>Cliente</th>
     <th>Categoría</th>
+    <th>Accion</th>
   </thead>
   <tbody>
     <tr *ngFor="let event of events">
@@ -34,6 +38,7 @@
           {{ event.categoria.toUpperCase() }}
         </span>
       </td>
+      <td> <button class="btn btn-danger" (click)="borradoEvento(event.id)">Borrado</button></td>
     </tr>
   </tbody>
 
