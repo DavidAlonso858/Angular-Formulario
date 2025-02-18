@@ -1,17 +1,52 @@
+en el service 
 
-hacer un service solo para esto
-private objetoCambioSbject = new BehaviorSubject<any>(null)
-cambioEmpleado = this.cambioEmpleadoSubject.asObservable();
-
-updateEmpleado(VALUE:ANY){
-    this.cambioEmpleado.next(value);
+updateEvento(evento: EventVeterinario): Observable<EventVeterinario> {
+  return this.http.put<EventVeterinario>(`${this.url}/${evento.id}`, evento);
 }
 
 
-this.myForm.get('empleado')?.valueChanges.subscribe(value =>{
-this.formEmpService.updateEmpleado(value);
-})
+en el componente de listado
 
-luego aplicarlo tambien el navbar
-empleado : string = "";
+eventoEditando: EventVeterinario | null = null;
 
+seleccionarEvento(evento: EventVeterinario) {
+  // Clonamos el objeto para evitar modificaciones en la lista antes de la edición
+  this.eventoEditando = { ...evento };
+}
+
+
+guardarEdicion() {
+  if (this.eventoEditando) {
+    this.eventoService.updateEvento(this.eventoEditando).subscribe(() => {
+      this.recargarEventos(); // Vuelve a cargar la lista de eventos
+      this.eventoEditando = null; // Sale del modo edición
+    });
+  }
+}
+
+en el html de listado
+
+<td>
+  <button class="btn btn-primary" (click)="seleccionarEvento(event)">Editar</button>
+  <button class="btn btn-danger" (click)="borradoEvento(event.id)">Borrar</button>
+</td>
+
+
+<div *ngIf="eventoEditando" class="mt-4 p-3 border bg-light">
+  <h3>Editar Evento</h3>
+  <label>Enfermedad:</label>
+  <input type="text" [(ngModel)]="eventoEditando.enfermedad" class="form-control" />
+
+  <label>Animal:</label>
+  <input type="text" [(ngModel)]="eventoEditando.animal" class="form-control" />
+
+  <label>Categoría:</label>
+  <select [(ngModel)]="eventoEditando.categoria" class="form-control">
+    <option value="leve">Leve</option>
+    <option value="moderada">Moderada</option>
+    <option value="grave">Grave</option>
+  </select>
+
+  <button class="btn btn-success mt-2" (click)="guardarEdicion()">Guardar</button>
+  <button class="btn btn-secondary mt-2" (click)="eventoEditando = null">Cancelar</button>
+</div>
