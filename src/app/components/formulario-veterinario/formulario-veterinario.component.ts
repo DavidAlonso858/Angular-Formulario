@@ -84,7 +84,7 @@ export class FormularioVeterinario {
   }
 
   onEmpleadoSeleccionado(event: Event) {
-    const selectedId = (event.target as HTMLSelectElement).value; // pilla la id del Select
+    const selectedId = (event.target as HTMLSelectElement).value; // pilla el value del select
     const selectedEmpleado = this.empleados.find(emp => emp.id.toString() === selectedId) || null;
     // miro a ver si esta en el json de empleados
 

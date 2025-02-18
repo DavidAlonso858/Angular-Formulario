@@ -19,17 +19,18 @@ export class EmpleadoSeleccionadoComponent implements OnInit {
   ngOnInit() {
     // se suscribe al observable
     this.empleadoService.cambioEmpleado$.subscribe((empleado: Empleado | null) => {
-      console.log('Empleado recibido (Componente):', empleado); 
+      console.log('Empleado recibido (Componente):', empleado);
       this.empleado = empleado; // y se almacena en la variable de este componente
     });
 
     if (typeof localStorage !== 'undefined') {
       const storedEmpleado = localStorage.getItem('empleadoSeleccionado'); // nombre puesto en el service de empleado
-      
+      // Busca en localStorage si hay un empleado guardado.
+
       if (storedEmpleado) {
         this.empleado = JSON.parse(storedEmpleado); // convierte el json del localStorage a objeto
         this.empleadoService.setEmpleadoSeleccionado(this.empleado);
-
+        // se llama para notificar que ha cambiado 
       }
     }
   }
