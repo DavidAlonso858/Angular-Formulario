@@ -62,7 +62,7 @@ export class FormularioVeterinario {
   onSubmit() {
     if (this.eventForm.valid) { // si los datos introducidos son validos
       this.eventoService.getEventos().subscribe(eventos => {
-        const newId = eventos.length + 1 // tengo que recorrerlo para acceder bien
+        const newId = Number(eventos[eventos.length-1].id) + 1 // tengo que recorrerlo para acceder bien
         const idString = String(newId) // pasarlo para comperarlo bien
 
         const empleadoId = this.eventForm.value.empleado;

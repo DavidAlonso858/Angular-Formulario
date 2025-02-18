@@ -31,8 +31,8 @@
     <tr *ngFor="let event of events">
       <td>{{ event.enfermedad.toUpperCase() }}</td>
       <td>{{ event.animal.toUpperCase() }}</td>
-      <td>{{ event.empleado.nombre }}</td>
-      <td>{{ event.cliente }}</td>
+      <td>{{ event.empleado.nombre.toUpperCase() }}</td>
+      <td>{{ event.cliente.toLocaleUpperCase() }}</td>
       <td>
         <span [ngClass]="event.categoria"> <!--Simplemente para aplicarle color por categoria en el CSS-->
           {{ event.categoria.toUpperCase() }}

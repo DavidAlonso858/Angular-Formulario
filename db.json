@@ -45,29 +45,42 @@
     },
     {
       "id": "2",
-      "enfermedad": "pierna mala",
-      "animal": "gato",
+      "enfermedad": "Varicela",
+      "animal": "Gato",
       "categoria": "moderada",
-      "fecha": "2022-08-01",
+      "fecha": "2025-02-09T13:24:21.000Z",
       "empleado": {
-        "id": 1,
+        "id": "1",
         "nombre": "Paco"
       },
-      "cliente": "David",
-      "fechaCreacion": "2025-01-13"
+      "cliente": "DAVID",
+      "fechaCreacion": "2025-02-18T13:24:52.923Z"
     },
     {
       "id": "3",
-      "enfermedad": "Pierna Mala",
-      "animal": "Huron",
+      "enfermedad": "Lepra",
+      "animal": "huron",
       "categoria": "grave",
-      "fecha": "2025-02-04T12:50:16.000Z",
+      "fecha": "2025-02-08T13:28:40.000Z",
       "empleado": {
-        "id": "2",
-        "nombre": "Juana"
+        "id": "3",
+        "nombre": "Carmen"
+      },
+      "cliente": "ivan",
+      "fechaCreacion": "2025-02-18T13:29:05.035Z"
+    },
+    {
+      "id": "4",
+      "enfermedad": "Pierna Mala",
+      "animal": "huron",
+      "categoria": "grave",
+      "fecha": "2025-01-12T23:00:00.000Z",
+      "empleado": {
+        "id": "4",
+        "nombre": "Zahira"
       },
       "cliente": "Ivan",
-      "fechaCreacion": "2025-02-18T12:51:06.495Z"
+      "fechaCreacion": "2025-02-18T13:30:21.870Z"
     }
   ]
 }
