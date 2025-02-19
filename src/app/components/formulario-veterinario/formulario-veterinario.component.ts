@@ -35,7 +35,6 @@ export class FormularioVeterinario {
   // en el constructor utilizo un objeto que agrupa los campos del formulario (fb)
   //  y el loggerService para trabajar con los eventos
   constructor(private fb: FormBuilder, private eventoService: EventosService, private empleadoService: EmpleadoService) {
-
     this.eventForm = this.fb.group({ // relleno los campos poniendo cual es requerido
 
       enfermedad: ['', [Validators.required, Validators.minLength(4)]],
@@ -45,6 +44,12 @@ export class FormularioVeterinario {
       empleado: ['', Validators.required], // guarda la id pero luego en el onSubmit consigo el empleado entero
       cliente: ['', Validators.required],
     });
+
+    const savedFormData = localStorage.getItem('formData');
+    if (savedFormData) {
+      // le asigno esos valores al formulario directamente
+      this.eventForm.setValue(JSON.parse(savedFormData));
+    }
   }
 
   // lo suscribo del service de empleado
@@ -62,7 +67,7 @@ export class FormularioVeterinario {
   onSubmit() {
     if (this.eventForm.valid) { // si los datos introducidos son validos
       this.eventoService.getEventos().subscribe(eventos => {
-        const newId = Number(eventos[eventos.length-1].id) + 1 // tengo que recorrerlo para acceder bien
+        const newId = Number(eventos[eventos.length - 1].id) + 1 // tengo que recorrerlo para acceder bien
         const idString = String(newId) // pasarlo para comperarlo bien
 
         const empleadoId = this.eventForm.value.empleado;
@@ -73,6 +78,9 @@ export class FormularioVeterinario {
             empleado: empleado,
             fechaCreacion: new Date(), // pongo la fecha de creacion
           };
+
+          const formData = this.eventForm.value;
+          localStorage.setItem('eventForm', JSON.stringify(formData));
 
           this.eventoService.addEvento(newEvent).subscribe(() => {
             this.eventos.push(newEvent);
