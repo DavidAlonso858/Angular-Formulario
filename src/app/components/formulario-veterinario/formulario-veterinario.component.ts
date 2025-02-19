@@ -45,7 +45,7 @@ export class FormularioVeterinario {
       cliente: ['', Validators.required],
     });
 
-    const savedFormData = localStorage.getItem('formData');
+    const savedFormData = localStorage.getItem('eventForm');
     if (savedFormData) {
       // le asigno esos valores al formulario directamente
       this.eventForm.setValue(JSON.parse(savedFormData));
