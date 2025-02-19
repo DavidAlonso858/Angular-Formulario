@@ -81,6 +81,19 @@
       },
       "cliente": "Ivan",
       "fechaCreacion": "2025-02-18T13:30:21.870Z"
+    },
+    {
+      "id": "5",
+      "enfermedad": "Hepatitis",
+      "animal": "Oranguton",
+      "categoria": "moderada",
+      "fecha": "2025-02-04T11:38:37.000Z",
+      "empleado": {
+        "id": "1",
+        "nombre": "Paco"
+      },
+      "cliente": "ivan",
+      "fechaCreacion": "2025-02-19T11:39:00.166Z"
     }
   ]
 }

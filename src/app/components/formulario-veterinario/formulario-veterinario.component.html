@@ -5,7 +5,7 @@
 <div class="formu-container">
     <h2>Registrar Incidencia Veterinaria</h2>
     <!--Asocio el formulario HTML con el FormGroup del componente-->
-    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> <!--llamo al enviar formulario-->
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" (change)="almacenarLocalStorage()"> <!--llamo al enviar formulario-->
         <div class="formu-apartado">
             <label>Enfermedad:</label>
             <input formControlName="enfermedad" required />

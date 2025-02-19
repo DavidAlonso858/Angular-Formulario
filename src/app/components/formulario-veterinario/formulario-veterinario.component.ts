@@ -79,9 +79,6 @@ export class FormularioVeterinario {
             fechaCreacion: new Date(), // pongo la fecha de creacion
           };
 
-          const formData = this.eventForm.value;
-          localStorage.setItem('eventForm', JSON.stringify(formData));
-
           this.eventoService.addEvento(newEvent).subscribe(() => {
             this.eventos.push(newEvent);
             this.eventForm.reset(); // reseteo los valores que ya los he copiado
@@ -100,6 +97,12 @@ export class FormularioVeterinario {
 
     // el empleado seleccionado en el servicio y en el localStorage
     this.empleadoService.setEmpleadoSeleccionado(selectedEmpleado);
+  }
+
+  almacenarLocalStorage() {
+    const formData = this.eventForm.value;
+    localStorage.setItem('eventForm', JSON.stringify(formData));
+
   }
 
 }  
